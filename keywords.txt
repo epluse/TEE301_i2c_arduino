@@ -1,0 +1,35 @@
+#######################################
+# Syntax Coloring Map For TEE301_i2c
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+tee301I2c	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+singleShotTemp				KEYWORD2
+singleShotTempClockStretchingDisabled	KEYWORD2
+getPeriodicMeasurementTemp		KEYWORD2
+startPeriodicMeasurement		KEYWORD2
+endPeriodicMeasurement			KEYWORD2
+heaterOn				KEYWORD2
+heaterOff				KEYWORD2
+readIdentification			KEYWORD2
+constantHeaterOnOff			KEYWORD2
+readStatusRegister1			KEYWORD2
+readStatusRegister2			KEYWORD2
+clearStatusregister1			KEYWORD2
+reset					KEYWORD2
+i2cReset				KEYWORD2
+getErrorString				KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+CRC8_ONEWIRE_POLY	LITERAL1
+CRC8_ONEWIRE_START	LITERAL1
