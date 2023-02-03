@@ -30,8 +30,37 @@ We assume no liability for the information contained in this document.
 
 // Defines
 //-----------------------------------------------------------------------------
-#define CRC8_ONEWIRE_POLY 0x31
-#define CRC8_ONEWIRE_START 0xFF
+#define CRC8_ONEWIRE_POLY                                       0x31
+#define CRC8_ONEWIRE_START                                      0xFF
+#define TEE301_COMMAND_READ_SINGLE_SHOT_HIGH_EN                 0x2C06 //EN = clock stretching enabled
+#define TEE301_COMMAND_READ_SINGLE_SHOT_MEDIUM_EN               0x2C0D //EN = clock stretching enabled
+#define TEE301_COMMAND_READ_SINGLE_SHOT_LOW_EN                  0x2C10 //EN = clock stretching enabled
+#define TEE301_COMMAND_READ_SINGLE_SHOT_HIGH_DIS                0x2C00 //DIS = clock stretching disabled
+#define TEE301_COMMAND_READ_SINGLE_SHOT_MEDIUM_DIS              0x2C0B //DIS = clock stretching disabled
+#define TEE301_COMMAND_READ_SINGLE_SHOT_LOW_DIS                 0x2C16 //DIS = clock stretching disabled 
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_0_5_HIGH      0x2032
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_0_5_MEDIUM    0x2024
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_0_5_LOW       0x202F
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_1_HIGH        0x2130
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_1_MEDIUM      0x2126
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_1_LOW         0x212D
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_2_HIGH        0x2236
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_2_MEDIUM      0x2220
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_2_LOW         0x222B
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_4_HIGH        0x2334
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_4_MEDIUM      0x2322
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_4_LOW         0x2329
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_10_HIGH       0x2737
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_10_MEDIUM     0x2721
+#define TEE301_COMMAND_START_PERIODIC_MEASUREMENT_10_LOW        0x272A
+#define TEE301_COMMAND_READ_PERIODIC_MEASUREMENT                0xE000
+#define TEE301_COMMAND_CLEAR_REGISTER                           0x3041
+#define TEE301_COMMAND_READ_REGISTER                            0xF32D
+#define TEE301_COMMAND_END_PERIODIC_MEASUREMENT                 0x3093
+#define TEE301_COMMAND_SOFT_RESET                               0x30A2
+#define TEE301_COMMAND_HEATER_ON                                0x306D
+#define TEE301_COMMAND_HEATER_OFF                               0x3066
+#define TEE301_COMMAND_READ_IDENTIFICATION                      0x7029
 
 
 // declaration of functions
@@ -51,9 +80,8 @@ public:
     void heaterOff(void);
     uint8_t readIdentification(unsigned char identification[]);
     uint8_t constantHeaterOnOff(bool &conHeaterOnOff);
-    uint8_t readStatusRegister1(unsigned char statusRegister1[]);
-    uint8_t readStatusRegister2(unsigned char statusRegister2[]);
-    void clearStatusregister1(void);
+    uint8_t readStatusRegister(unsigned char statusRegister[]);
+    void clearStatusregister(void);
     void reset(void);
     void i2cReset(void);
     unsigned char address = 0x4A;

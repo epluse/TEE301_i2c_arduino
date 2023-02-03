@@ -54,7 +54,7 @@ void setup()
   Serial.println("");
   tee.startPeriodicMeasurement(2, 2); // measurementPerSeconds: 0 = 0.5 mps, 1 = 1mps, 2 = 2mps, 3 = 4mps, 4 = 10mps;  repeatability: 0 = low, 1 = medium, 2 = high; 
   delay(2000);
-  Serial.print("temperature");
+  Serial.println("temperature");
   delay(1000);
 }
 
